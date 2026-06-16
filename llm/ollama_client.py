@@ -1,6 +1,7 @@
 import subprocess
 import json
 import time
+import re
 from dataclasses import dataclass
 
 @dataclass
@@ -15,7 +16,6 @@ class OllamaClient:
         self._verify_connection()
 
     def _verify_connection(self):
-        """Check Ollama is running and model is available."""
         try:
             result = subprocess.run(
                 ["ollama", "list"],
@@ -29,8 +29,7 @@ class OllamaClient:
         except FileNotFoundError:
             raise RuntimeError("Ollama not found. Install from https://ollama.com")
 
-    def complete(self, prompt: str, temperature: float = 0.7) -> LLMResponse:
-        """Send a prompt and get a completion."""
+    def complete(self, prompt: str) -> LLMResponse:
         start = time.perf_counter()
         result = subprocess.run(
             ["ollama", "run", self.model, prompt],
@@ -39,37 +38,88 @@ class OllamaClient:
         )
         latency_ms = (time.perf_counter() - start) * 1000
 
+        # Strip terminal escape codes from LLM output
+        clean = re.sub(r'\x1b\[[0-9;]*[a-zA-Z]', '', result.stdout)
+        clean = re.sub(r'\x1b\[[\x00-\x1f]*', '', clean)
+
         return LLMResponse(
-            content=result.stdout.strip(),
+            content=clean.strip(),
             latency_ms=round(latency_ms, 2),
             model=self.model
         )
 
     def complete_json(self, prompt: str) -> dict:
-        """
-        Send a prompt and parse response as JSON.
-        Used when agent needs structured output.
-        """
-        json_prompt = prompt + "\n\nRespond ONLY with valid JSON. No explanation, no markdown, no backticks."
+        json_prompt = (
+            prompt +
+            "\n\nCRITICAL: respond with ONLY a JSON object containing ONLY the fields asked for. "
+            "No extra fields. No explanation. No markdown. "
+            "No newlines inside string values. "
+            "Use this exact format: {\"steps\":[{\"step\":1,\"tool\":\"TOOL\",\"task\":\"TASK\"}]}"
+        )
         response = self.complete(json_prompt)
-
-        # Clean response and parse
         content = response.content.strip()
-        # Remove markdown code blocks if present
+
+        # Remove markdown code blocks
         if "```" in content:
-            content = content.split("```")[1]
-            if content.startswith("json"):
-                content = content[4:]
+            parts = content.split("```")
+            for part in parts:
+                part = part.strip()
+                if part.startswith("json"):
+                    part = part[4:]
+                if part.strip().startswith("{"):
+                    content = part.strip()
+                    break
+
+        # Remove control characters
+        content = re.sub(r'[\x00-\x1f\x7f]', ' ', content)
+
+        # Find start of JSON
+        start = content.find("{")
+        if start == -1:
+            raise ValueError(f"No JSON found in: {content}")
+
+        # Find matching closing brace
+        depth = 0
+        end = -1
+        for i, ch in enumerate(content[start:], start):
+            if ch == "{":
+                depth += 1
+            elif ch == "}":
+                depth -= 1
+                if depth == 0:
+                    end = i + 1
+                    break
+
+        if end == -1:
+            raise ValueError(f"Truncated JSON: {content[:200]}")
+
+        json_str = content[start:end]
 
         try:
-            return json.loads(content)
+            result = json.loads(json_str)
+            if "steps" in result:
+                return {"steps": result["steps"]}
+            return result
         except json.JSONDecodeError:
-            # Try to extract JSON from response
-            start = content.find("{")
-            end = content.rfind("}") + 1
-            if start != -1 and end != 0:
-                return json.loads(content[start:end])
-            raise ValueError(f"Could not parse JSON from response: {content}")
+            # Try common fixes for malformed JSON
+            fixed = json_str
+
+            # Fix mismatched closing like }} instead of }]}
+            fixed = re.sub(r'\}\}$', '}]}', fixed)
+            fixed = re.sub(r'\}\s*\}\s*$', '}]}', fixed)
+
+            # Fix missing closing bracket
+            if '"steps"' in fixed and ']' not in fixed:
+                fixed = fixed.rstrip('}') + ']}'
+
+            try:
+                result = json.loads(fixed)
+                if "steps" in result:
+                    return {"steps": result["steps"]}
+                return result
+            except json.JSONDecodeError as e:
+                raise ValueError(f"Could not parse JSON: {e}\nContent: {json_str[:200]}")
+
 
 if __name__ == "__main__":
     client = OllamaClient()
@@ -77,3 +127,10 @@ if __name__ == "__main__":
     print("\nTest 1 — Basic completion:")
     response = client.complete("What is 2 + 2? Answer in one word.")
     print(f"Response: {response.content}")
+    print(f"Latency: {response.latency_ms:.0f}ms")
+
+    print("\nTest 2 — JSON completion:")
+    result = client.complete_json(
+        'Return a JSON object with ONLY these keys: "name" and "type" describing Python.'
+    )
+    print(f"Parsed JSON: {result}")

@@ -60,7 +60,7 @@ def run(action_input: str) -> str:
       'delete: report.txt'
     """
     action_input = action_input.strip()
-
+    action_input = action_input.strip("'\"")  # remove quotes LLM adds
     if action_input.startswith("write:"):
         # Format: write: filename: content
         parts = action_input[len("write:"):].strip().split(":", 1)

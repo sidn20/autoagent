@@ -4,9 +4,9 @@ sys.path.insert(0, os.path.expanduser("~/autoagent"))
 
 from llm.ollama_client import OllamaClient
 from llm.prompt_builder import build_react_prompt, parse_llm_response, AgentStep
+from core.memory import ShortTermMemory, LongTermMemory
 from tools import calculator, file_tool, web_search, rag_tool
 
-# Tool registry — maps tool names to their run() functions
 TOOLS = {
     "calculator": calculator.calculate,
     "file_tool": file_tool.run,
@@ -26,6 +26,8 @@ class Agent:
         self.llm = OllamaClient()
         self.max_steps = max_steps
         self.verbose = verbose
+        self.short_term = ShortTermMemory()
+        self.long_term = LongTermMemory()
         self.history: list[AgentStep] = []
 
     def _log(self, msg: str):
@@ -33,77 +35,92 @@ class Agent:
             print(msg)
 
     def _run_tool(self, tool_name: str, action_input: str) -> str:
-        """Run a tool and return its output."""
         tool_name = tool_name.lower().strip()
-
         if tool_name not in TOOLS:
             return f"Error: Unknown tool '{tool_name}'. Available: {list(TOOLS.keys())}"
-
         try:
             return TOOLS[tool_name](action_input)
         except Exception as e:
             return f"Tool error: {str(e)}"
 
     def run(self, goal: str) -> str:
-        """
-        Main ReAct loop:
-        1. Build prompt with goal + history
-        2. Get LLM response
-        3. Parse response into thought/action/input
-        4. Run the tool
-        5. Add observation to history
-        6. Repeat until Final Answer or max steps
-        """
         self._log(f"\n{'='*55}")
         self._log(f"AGENT GOAL: {goal}")
         self._log(f"{'='*55}\n")
 
+        # Set up short-term memory for this session
+        self.short_term.set_goal(goal)
         self.history = []
+
+        # Check long-term memory for relevant past sessions
+        past_context = self.long_term.recall_similar(goal)
+        if "No similar" not in past_context:
+            self._log(f"[Memory] {past_context}\n")
+
+        final_answer = "Max steps reached without final answer."
+        success = False
 
         for step in range(self.max_steps):
             self._log(f"--- Step {step + 1}/{self.max_steps} ---")
 
-            # Build prompt
             prompt = build_react_prompt(
                 goal=goal,
                 tools=TOOL_DESCRIPTIONS,
                 history=self.history
             )
 
-            # Get LLM response
             self._log("Thinking...")
             response = self.llm.complete(prompt)
             self._log(f"LLM Response:\n{response.content}\n")
 
-            # Parse response
             agent_step = parse_llm_response(response.content)
 
-            # Check if agent has final answer
             if agent_step.is_final:
                 self._log(f"FINAL ANSWER: {agent_step.final_answer}")
                 self.history.append(agent_step)
-                return agent_step.final_answer
+                final_answer = agent_step.final_answer
+                success = True
+                break
 
-            # Validate action
             if not agent_step.action:
-                self._log("Warning: No action found in response, retrying...")
+                self._log("Warning: No action found, retrying...")
                 continue
 
-            # Run the tool
             self._log(f"Running tool: {agent_step.action}")
             self._log(f"Input: {agent_step.action_input}")
             observation = self._run_tool(agent_step.action, agent_step.action_input)
             self._log(f"Observation: {observation}\n")
 
-            # Add to history
+            # Record in short-term memory
+            self.short_term.add_step(
+                thought=agent_step.thought,
+                action=agent_step.action,
+                observation=observation
+            )
+
             agent_step.observation = observation
             self.history.append(agent_step)
 
-        return "Max steps reached without final answer."
+        # Save to long-term memory
+        self.long_term.remember(
+            goal=goal,
+            summary=final_answer[:200],
+            tools_used=self.short_term.get_tools_used(),
+            success=success
+        )
+
+        return final_answer
+
 
 if __name__ == "__main__":
-    agent = Agent(max_steps=5, verbose=True)
+    agent = Agent(max_steps=6, verbose=True)
 
-    # Start with a simple test
-    result = agent.run("Search the web for what Python is, then save a summary to a file called python_summary.txt") 
-    print(f"\nFinal Result: {result}")
+    # First run — agent has no memory of this
+    result = agent.run("What is the square root of 256?")
+    print(f"\nResult: {result}")
+
+    print("\n" + "="*55 + "\n")
+
+    # Second run — agent will recall the first session
+    result = agent.run("Calculate the square root of 144 and save it to math_results.txt")
+    print(f"\nResult: {result}")
