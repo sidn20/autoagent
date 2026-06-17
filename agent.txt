@@ -3682,4 +3682,230 @@ building APIs in Python 3.8+, featuring auto-generated OpenAPI documentatio
 documentation and support for standard Python type hints.
 
 FINAL ANSWER: FastAPI is a modern, high-performance web framework for build
-Saved to long-term memory: 'seaarch 
+Saved to long-term memory: 'seaarch web for fastapi'
+
+=======================================================
+✅ DONE: FastAPI is a modern, high-performance web framework for build
+=======================================================
+
+🤖 Goal > memory
+
+==================================================
+Long-term Memory (7 sessions)
+==================================================
+✅ [2026-06-16T06:10] What is the square root of 256?
+   Tools: ['calculator']
+   Summary: The square root of 256 is 16.0.
+✅ [2026-06-16T06:11] Calculate the square root of 144 and save it to ma
+   Tools: ['calculator', 'file_tool']
+   Summary: The square root of 144 is 12.0
+✅ [2026-06-16T09:22] What is the square root of 256?
+   Tools: ['calculator']
+   Summary: 16.0
+✅ [2026-06-16T09:24] What is the square root of 256?
+   Tools: ['calculator']
+   Summary: The square root of 256 is 16.0
+✅ [2026-06-16T09:24] Calculate the square root of 144 and save it to ma
+   Tools: ['file_tool', 'calculator']
+   Summary: The square root of 144 is 12.0 and it has been saved to math_[5D[K
+==================================================
+
+🤖 Goal > quit
+Goodbye!
+[?2004h]0;ubuntu@ubuntu: ~/autoagent[01;32mubuntu@ubuntu[00m:[01;34m~/autoagent[00m$ [7mcd ~/autoagent[27m
+[7mgit add .[27m
+[7mgit commit -m "complete autonomous agent - ReAct loop, 4 tools, memory, CLI"[27m
+[7mgit push[27m[A[A[A]0;ubuntu@ubuntu: ~/autoagent[01;32mubuntu@ubuntu[00m:[01;34m~/autoagent[00m$ cd ~/autoagent
+git add .
+git commit -m "complete autonomous agent - ReAct loop, 4 tools, memory, CLI"
+git push
+[?2004l[main 7c73433] complete autonomous agent - ReAct loop, 4 tools, memory, CLI
+ 13 files changed, 3803 insertions(+), 51 deletions(-)
+ create mode 100644 core/__pycache__/agent.cpython-312.pyc
+ create mode 100644 core/__pycache__/memory.cpython-312.pyc
+ create mode 100644 memory_store.json
+ create mode 100644 workspace/math_results.txt
+Enumerating objects: 36, done.
+Counting objects:   2% (1/34)Counting objects:   5% (2/34)Counting objects:   8% (3/34)Counting objects:  11% (4/34)Counting objects:  14% (5/34)Counting objects:  17% (6/34)Counting objects:  20% (7/34)Counting objects:  23% (8/34)Counting objects:  26% (9/34)Counting objects:  29% (10/34)Counting objects:  32% (11/34)Counting objects:  35% (12/34)Counting objects:  38% (13/34)Counting objects:  41% (14/34)Counting objects:  44% (15/34)Counting objects:  47% (16/34)Counting objects:  50% (17/34)Counting objects:  52% (18/34)Counting objects:  55% (19/34)Counting objects:  58% (20/34)Counting objects:  61% (21/34)Counting objects:  64% (22/34)Counting objects:  67% (23/34)Counting objects:  70% (24/34)Counting objects:  73% (25/34)Counting objects:  76% (26/34)Counting objects:  79% (27/34)Counting objects:  82% (28/34)Counting objects:  85% (29/34)Counting objects:  88% (30/34)Counting objects:  91% (31/34)Counting objects:  94% (32/34)Counting objects:  97% (33/34)Counting objects: 100% (34/34)Counting objects: 100% (34/34), done.
+Delta compression using up to 2 threads
+Compressing objects:   4% (1/21)Compressing objects:   9% (2/21)Compressing objects:  14% (3/21)Compressing objects:  19% (4/21)Compressing objects:  23% (5/21)Compressing objects:  28% (6/21)Compressing objects:  33% (7/21)Compressing objects:  38% (8/21)Compressing objects:  42% (9/21)Compressing objects:  47% (10/21)Compressing objects:  52% (11/21)Compressing objects:  57% (12/21)Compressing objects:  61% (13/21)Compressing objects:  66% (14/21)Compressing objects:  71% (15/21)Compressing objects:  76% (16/21)Compressing objects:  80% (17/21)Compressing objects:  85% (18/21)Compressing objects:  90% (19/21)Compressing objects:  95% (20/21)Compressing objects: 100% (21/21)Compressing objects: 100% (21/21), done.
+Writing objects:   4% (1/22)Writing objects:   9% (2/22)Writing objects:  13% (3/22)Writing objects:  18% (4/22)Writing objects:  22% (5/22)Writing objects:  27% (6/22)Writing objects:  31% (7/22)Writing objects:  36% (8/22)Writing objects:  40% (9/22)Writing objects:  45% (10/22)Writing objects:  50% (11/22)Writing objects:  54% (12/22)Writing objects:  59% (13/22)Writing objects:  63% (14/22)Writing objects:  68% (15/22)Writing objects:  72% (16/22)Writing objects:  77% (17/22)Writing objects:  81% (18/22)Writing objects:  86% (19/22)Writing objects:  90% (20/22)Writing objects:  95% (21/22)Writing objects: 100% (22/22)Writing objects: 100% (22/22), 73.69 KiB | 2.95 MiB/s, done.
+Total 22 (delta 3), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas:   0% (0/3)[Kremote: Resolving deltas:  33% (1/3)[Kremote: Resolving deltas:  66% (2/3)[Kremote: Resolving deltas: 100% (3/3)[Kremote: Resolving deltas: 100% (3/3), completed with 3 local objects.[K
+To https://github.com/sidn20/autoagent.git
+   2a342b4..7c73433  main -> main
+[?2004h]0;ubuntu@ubuntu: ~/autoagent[01;32mubuntu@ubuntu[00m:[01;34m~/autoagent[00m$ [7mnano api.py[27mnano api.py
+[?2004l[?2004h[?1049h[22;0;0t[1;33r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[31;37H(B[0;7m[ Reading... ](B[m[31;36H(B[0;7m[ Read 0 lines ](B[m[H(B[0;7m  GNU nano 7.2                             api.py                                      [1;86H(B[m[32d(B[0;7m^G(B[m Help[15G(B[0;7m^O(B[m Write Out  (B[0;7m^W(B[m Where Is   (B[0;7m^K(B[m Cut[32;57H(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location[33d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste[57G(B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line[2d[?12l[?25h[?25l[1;51H(B[0;7m*[31d(B[m[K[1;86H[2d(B[0;1m[36mdef[34m metrics[39m(B[m():[3;5H(B[0;1m[36mif[39m(B[m (B[0;1m[36mnot[39m(B[m request_log:[4;9H(B[0;1m[36mreturn[39m(B[m {(B[0;1m[32m"message"[39m(B[m: (B[0;1m[32m"No requests yet"[39m(B[m}[5;5Hlatencies = [r[(B[0;1m[32m"latency_ms"[39m(B[m] (B[0;1m[36mfor[39m(B[m r (B[0;1m[36min[39m(B[m request_log][6;5H(B[0;1m[36mreturn[39m(B[m {[7;9H(B[0;1m[32m"total_requests"[39m(B[m: len(request_log),[8;9H(B[0;1m[32m"avg_latency_ms"[39m(B[m: round(sum(latencies) / len(latencies), 2),[9;9H(B[0;1m[32m"min_latency_ms"[39m(B[m: round(min(latencies), 2),[10;9H(B[0;1m[32m"max_latency_ms"[39m(B[m: round(max(latencies), 2),[11;9H(B[0;1m[32m"recent_requests"[39m(B[m: request_log[-5:][12;5H}[14d(B[0;1m[36mif[39m(B[m __name__ == (B[0;1m[32m"__main__"[39m(B[m:[15;5H(B[0;1m[36mimport[39m(B[m uvicorn[16;5Huvicorn.run(app, host=(B[0;1m[32m"0.0.0.0"[39m(B[m, port=8001)[?12l[?25h[?25l[32;15H       (B[0;7mM-D(B[m DOS Format       (B[0;7mM-A(B[m Append           (B[0;7mM-B(B[m Backup File[K[33;2H(B[0;7mC(B[m Cancel            (B[0;7mM-M(B[m Mac Format       (B[0;7mM-P(B[m Prepend          (B[0;7m^T(B[m Browse[K[31d(B[0;7mFile Name to Write: api.py                                                             [31;27H(B[m[?12l[?25h[?25l[31;36H[1K (B[0;7m[ Writing... ](B[m[K[1;51H(B[0;7m [86G(B[m[31;35H(B[0;7m[ Wrote 115 lines ](B[m[32;15H(B[0;7m^O(B[m Write Out  (B[0;7m^W(B[m Where Is   (B[0;7m^K(B[m Cut        (B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location[33;2H(B[0;7mX(B[m Exit       (B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste      (B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line[?12l[?25h[16;48H[?25l[31d[J[33d[?12l[?25h[33;1H[?1049l[23;0;0t[?1l>[?2004l[?2004h]0;ubuntu@ubuntu: ~/autoagent[01;32mubuntu@ubuntu[00m:[01;34m~/autoagent[00m$ [7mpython3 api.py[27mpython3 api.py
+[?2004l/home/ubuntu/autoagent/api.py:36: DeprecationWarning: 
+        on_event is deprecated, use lifespan event handlers instead.
+
+        Read more about it in the
+        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+        
+  @app.on_event("startup")
+[32mINFO[0m:     Started server process [[36m11571[0m]
+[32mINFO[0m:     Waiting for application startup.
+Loading AutoAgent...
+LLM client ready — model: llama3.2
+Long-term memory loaded: 9 past sessions
+Long-term memory loaded: 9 past sessions
+AutoAgent ready.
+[32mINFO[0m:     Application startup complete.
+[32mINFO[0m:     Uvicorn running on [1mhttp://0.0.0.0:8001[0m (Press CTRL+C to quit)
+[32mINFO[0m:     127.0.0.1:60014 - "[1mGET /health HTTP/1.1[0m" [32m200 OK[0m
+^C[32mINFO[0m:     Shutting down
+[32mINFO[0m:     Waiting for connections to close. (CTRL+C to force quit)
+[32mINFO[0m:     Waiting for background tasks to complete. (CTRL+C to force quit)
+^C[32mINFO[0m:     Finished server process [[36m11571[0m]
+[31mERROR[0m:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 674, in run_until_complete
+    self.run_forever()
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 641, in run_forever
+    self._run_once()
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 1987, in _run_once
+    handle._run()
+  File "/usr/lib/python3.12/asyncio/events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/uvicorn/server.py", line 78, in serve
+    with self.capture_signals():
+  File "/usr/lib/python3.12/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/uvicorn/server.py", line 339, in capture_signals
+    signal.raise_signal(captured_signal)
+  File "/usr/lib/python3.12/asyncio/runners.py", line 157, in _on_sigint
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 415, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 62, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/fastapi/applications.py", line 1159, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/starlette/applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/starlette/routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/starlette/routing.py", line 680, in app
+    await route.handle(scope, receive, send)
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/fastapi/routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/fastapi/routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/fastapi/routing.py", line 674, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/fastapi/routing.py", line 330, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/starlette/concurrency.py", line 32, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/anyio/to_thread.py", line 63, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2518, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+[31mERROR[0m:    Traceback (most recent call last):
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 674, in run_until_complete
+    self.run_forever()
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 641, in run_forever
+    self._run_once()
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 1987, in _run_once
+    handle._run()
+  File "/usr/lib/python3.12/asyncio/events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/uvicorn/server.py", line 78, in serve
+    with self.capture_signals():
+  File "/usr/lib/python3.12/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/uvicorn/server.py", line 339, in capture_signals
+    signal.raise_signal(captured_signal)
+  File "/usr/lib/python3.12/asyncio/runners.py", line 157, in _on_sigint
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/starlette/routing.py", line 645, in lifespan
+    await receive()
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/uvicorn/lifespan/on.py", line 137, in receive
+    return await self.receive_queue.get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/queues.py", line 158, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+
+^CException ignored in: <module 'threading' from '/usr/lib/python3.12/threading.py'>
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/threading.py", line 1622, in _shutdown
+    lock.acquire()
+KeyboardInterrupt: 
+[?2004h]0;ubuntu@ubuntu: ~/autoagent[01;32mubuntu@ubuntu[00m:[01;34m~/autoagent[00m$ [K]0;ubuntu@ubuntu: ~/autoagent[01;32mubuntu@ubuntu[00m:[01;34m~/autoagent[00m$ [K]0;ubuntu@ubuntu: ~/autoagent[01;32mubuntu@ubuntu[00m:[01;34m~/autoagent[00m$ [K]0;ubuntu@ubuntu: ~/autoagent[01;32mubuntu@ubuntu[00m:[01;34m~/autoagent[00m$ [K]0;ubuntu@ubuntu: ~/autoagent[01;32mubuntu@ubuntu[00m:[01;34m~/autoagent[00m$ [K]0;ubuntu@ubuntu: ~/autoagent[01;32mubuntu@ubuntu[00m:[01;34m~/autoagent[00m$ [K]0;ubuntu@ubuntu: ~/autoagent[01;32mubuntu@ubuntu[00m:[01;34m~/autoagent[00m$ [K]0;ubuntu@ubuntu: ~/autoagent[01;32mubuntu@ubuntu[00m:[01;34m~/autoagent[00m$ [K]0;ubuntu@ubuntu: ~/autoagent[01;32mubuntu@ubuntu[00m:[01;34m~/autoagent[00m$ [K]0;ubuntu@ubuntu: ~/autoagent[01;32mubuntu@ubuntu[00m:[01;34m~/autoagent[00m$ [K]0;ubuntu@ubuntu: ~/autoagent[01;32mubuntu@ubuntu[00m:[01;34m~/autoagent[00m$ [K]0;ubuntu@ubuntu: ~/autoagent[01;32mubuntu@ubuntu[00m:[01;34m~/autoagent[00m$ [K]0;ubuntu@ubuntu: ~/autoagent[01;32mubuntu@ubuntu[00m:[01;34m~/autoagent[00m$ [K]0;ubuntu@ubuntu: ~/autoagent[01;32mubuntu@ubuntu[00m:[01;34m~/autoagent[00m$ [K]0;ubuntu@ubuntu: ~/autoagent[01;32mubuntu@ubuntu[00m:[01;34m~/autoagent[00m$ [K]0;ubuntu@ubuntu: ~/autoagent[01;32mubuntu@ubuntu[00m:[01;34m~/autoagent[00m$ [K]0;ubuntu@ubuntu: ~/autoagent[01;32mubuntu@ubuntu[00m:[01;34m~/autoagent[00m$ [K]0;ubuntu@ubuntu: ~/autoagent[01;32mubuntu@ubuntu[00m:[01;34m~/autoagent[00m$ [K]0;ubuntu@ubuntu: ~/autoagent[01;32mubuntu@ubuntu[00m:[01;34m~/autoagent[00m$ [K]0;ubuntu@ubuntu: ~/autoagent[01;32mubuntu@ubuntu[00m:[01;34m~/autoagent[00m$ [K]0;ubuntu@ubuntu: ~/autoagent[01;32mubuntu@ubuntu[00m:[01;34m~/autoagent[00m$ [K]0;ubuntu@ubuntu: ~/autoagent[01;32mubuntu@ubuntu[00m:[01;34m~/autoagent[00m$ [K]0;ubuntu@ubuntu: ~/autoagent[01;32mubuntu@ubuntu[00m:[01;34m~/autoagent[00m$ [K]0;ubuntu@ubuntu: ~/autoagent[01;32mubuntu@ubuntu[00m:[01;34m~/autoagent[00m$ [K]0;ubuntu@ubuntu: ~/autoagent[01;32mubuntu@ubuntu[00m:[01;34m~/autoagent[00m$ [K]0;ubuntu@ubuntu: ~/autoagent[01;32mubuntu@ubuntu[00m:[01;34m~/autoagent[00m$  za[K[K[K [7mpython3 api.py &[27mpython3 api.py &
+[?2004l[1] 17274
+[?2004h]0;ubuntu@ubuntu: ~/autoagent[01;32mubuntu@ubuntu[00m:[01;34m~/autoagent[00m$ /home/ubuntu/autoagent/api.py:36: DeprecationWarning: 
+        on_event is deprecated, use lifespan event handlers instead.
+
+        Read more about it in the
+        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+        
+  @app.on_event("startup")
+[32mINFO[0m:     Started server process [[36m17274[0m]
+[32mINFO[0m:     Waiting for application startup.
+Loading AutoAgent...
+LLM client ready — model: llama3.2
+Long-term memory loaded: 9 past sessions
+Long-term memory loaded: 9 past sessions
+AutoAgent ready.
+[32mINFO[0m:     Application startup complete.
+[32mINFO[0m:     Uvicorn running on [1mhttp://0.0.0.0:8001[0m (Press CTRL+C to quit)
+[32mINFO[0m:     127.0.0.1:55872 - "[1mGET /health HTTP/1.1[0m" [32m200 OK[0m
+Saved to long-term memory: 'what is 99 * 11'
+[32mINFO[0m:     127.0.0.1:55874 - "[1mPOST /run HTTP/1.1[0m" [32m200 OK[0m
+[7mkill %1[27m
+[7mnano README.md[27m[A]0;ubuntu@ubuntu: ~/autoagent[01;32mubuntu@ubuntu[00m:[01;34m~/autoagent[00m$ kill %1
+nano README.md
+[?2004l[32mINFO[0m:     Shutting down
+[?2004h[?1049h[22;0;0t[1;27r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[25;53H(B[0;7m[ New File ](B[m[H(B[0;7m  GNU nano 7.2                                          README.md                                                    [1;116H(B[m[26d(B[0;7m^G(B[m Help[26;17H(B[0;7m^O(B[m Write Out    (B[0;7m^W(B[m Where Is     (B[0;7m^K(B[m Cut[26;65H(B[0;7m^T(B[m Execute[81G(B[0;7m^C(B[m Location     (B[0;7mM-U(B[m Undo[27d(B[0;7m^X(B[m Exit[27;17H(B[0;7m^R(B[m Read File    (B[0;7m^\(B[m Replace[49G(B[0;7m^U(B[m Paste[27;65H(B[0;7m^J(B[m Justify[81G(B[0;7m^/(B[m Go To Line   (B[0;7mM-E(B[m Redo[2d[?12l[?25h[32mINFO[0m:     Waiting for application shutdown.
+[32mINFO[0m:     Application shutdown complete.
+[32mINFO[0m:     Finished server process [[36m17274[0m]
+[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[25d[K[?12l[?25h[2d[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[25;47H(B[0;1m[37m[41m[ To suspend, type ^T^Z ][39;49m(B[m[?12l[?25h[2d[?25l[25d[J[27d[?12l[?25h[27;1H[?1049l[23;0;0t[?1l>[?2004l[1]+  Terminated              python3 api.py
+[?2004h]0;ubuntu@ubuntu: ~/autoagent[01;32mubuntu@ubuntu[00m:[01;34m~/autoagent[00m$ nano README.md
+[?2004l[?2004h[?1049h[22;0;0t[1;27r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[25;53H(B[0;7m[ New File ](B[m[H(B[0;7m  GNU nano 7.2                                          README.md                                                    [1;116H(B[m[26d(B[0;7m^G(B[m Help[26;17H(B[0;7m^O(B[m Write Out    (B[0;7m^W(B[m Where Is     (B[0;7m^K(B[m Cut[26;65H(B[0;7m^T(B[m Execute[81G(B[0;7m^C(B[m Location     (B[0;7mM-U(B[m Undo[27d(B[0;7m^X(B[m Exit[27;17H(B[0;7m^R(B[m Read File    (B[0;7m^\(B[m Replace[49G(B[0;7m^U(B[m Paste[27;65H(B[0;7m^J(B[m Justify[81G(B[0;7m^/(B[m Go To Line   (B[0;7mM-E(B[m Redo[2d[?12l[?25h[?25l[1;67H(B[0;7m*[25d(B[m[K[1;116H[2d(B[0;1m[33m# AutoAgent — Autonomous AI Agent Framework[4d[39m(B[mAn autonomous AI agent built from scratch in Python without LangChain or[5dLlamaIndex. Uses the ReAct (Reason + Act) loop to break down goals,[6dselect tools, execute them, and iterate until the task is complete.[8dPowered by local Llama3.2 via Ollama — no API keys, no cloud required.[10d(B[0;1m[33m## What is a ReAct Agent?[39m(B[m[?12l[?25h[?25l[11d[?12l[?25h[?25lGoal → Thought → Action → Observation → Thought → ... → Final Answer[12d[?12l[?25h[?25l[13d[?12l[?25h[?25lThe agent reasons about what to do, picks a tool, runs it, observes the[14dresult, and repeats until it has enough information to answer.[16d(B[0;1m[33m## Architecture[39m(B[m[?12l[?25h[?25l[17d[?12l[?25h[?25l[2;25r[25;1H[7S[1;27r[10;1Hautoagent/[11d├── core/[12d│   ├── agent.py[24G— ReAct loop, tool execution, main brain[13d│   ├── memory.py[24G— short term (session) + long term (persistent)[14d│   └── planner.py     — breaks goals into ordered steps[15d├── llm/[16d│   ├── ollama_client.py   — Llama3.2 client with JSON parsing[17d│   └── prompt_builder.py  — ReAct prompt construction and parsing[18d├── tools/[19d│   ├── calculator.py  — sandboxed math evaluation[20d│   ├── file_tool.py   — read/write/list files in workspace[21d│   ├── web_search.py  — DuckDuckGo live search, no API key[22d│   └── rag_tool.py    — semantic search via rag-system project[23d├── cli.py[23;24H— interactive terminal interface[24d└── api.py[24;24H— FastAPI REST interface[?12l[?25h[?25l7[2;25r8[25d
+[1;27r[24;1H[?12l[?25h[?25l7[2;25r8[25d
+[1;27r[24;1H[?12l[?25h[?25l[2d(B[0;1m[33m# Install Ollama and pull model[39m(B[m[K[3d(B[0;1m[36mcurl -fsSL https://ollama.com/install.sh | sh[4dollama pull llama3.2[39m(B[m[K[5d[K[6d(B[0;1m[33m# Run CLI[7d[36mpython3 cli.py[39m(B[m[K[8d[K[9d(B[0;1m[33m# Run API[10d[36mpython3 api.py[39m(B[m[K[11d(B[0;1m[36m```[39m(B[m[K[12d[K[13d(B[0;1m[33m## CLI Usage[14d[39m(B[m[K[15d[K[16d[K[17d[K[18d[K[19d[K[20d[K[21d[K[22d[K[13;13H[?12l[?25h[?25l[14d[?12l[?25h[?25l╔══════════════════════════════════════════════════╗[15d║[15;13HAutoAgent — AI Agent CLI[15
